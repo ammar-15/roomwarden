@@ -65,6 +65,9 @@ if (wf) {
     const track = panel.querySelector(".track"), fill = panel.querySelector(".fill");
     const shown = reduceMotion ? items.length - 1 : step;
     items.forEach((li, n) => li.classList.toggle("on", n <= shown));
+    panel.dataset.step = shown;
+    panel.querySelectorAll("[data-states]").forEach((el) => { el.textContent = JSON.parse(el.dataset.states)[shown]; });
+    panel.querySelectorAll("[data-keys]").forEach((el) => { el.dataset.s = JSON.parse(el.dataset.keys)[shown]; });
     if (!items.length || !track) return;
     const r = 18.4; // half the step circle
     const vertical = window.matchMedia("(max-width: 820px)").matches;
@@ -81,13 +84,14 @@ if (wf) {
   const run = () => {
     clearInterval(timer);
     if (reduceMotion) return paint();
+    let tick = 0;
     timer = setInterval(() => {
       if (!inView || document.hidden) return;
       const count = panels[current].querySelectorAll(".flow li").length;
-      step = (step + 1) % (count + 1);
-      if (step === count) step = 0;
+      tick = (tick + 1) % (count + 2); // hold on the last step for a beat
+      step = Math.min(tick, count - 1);
       paint();
-    }, 1700);
+    }, 2300);
   };
   const select = (n, focus) => {
     current = n; step = 0;

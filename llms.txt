@@ -4,6 +4,7 @@
 
 Key facts:
 - Built for select-service and airport hotels, usable by any property.
+- Also tracks parking and park and fly, lost and found, shift notes and other front desk lists.
 - Guests request shuttle rides by regular text message; no guest app.
 - Staff use it in a web browser on any phone, tablet or computer.
 - Every staff member gets their own admin-issued login with per-user permissions.
@@ -24,3 +25,4 @@ Key facts:
 ## Contact
 
 - Email: hello@roomwarden.com
+- LinkedIn: https://www.linkedin.com/company/roomwarden/
