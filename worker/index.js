@@ -1,5 +1,6 @@
 // Room Warden Worker: serves the static site from /public and handles the demo form.
-// POST /api/contact -> emails the request to CONTACT_TO through Cloudflare Email Service.
+// POST /api/contact -> saves the request to D1 (table: leads), then emails it to CONTACT_TO
+// through Cloudflare Email Service. Any email error is stored on the row in email_error.
 
 const LIMITS = { name: 120, email: 200, hotel: 160, rooms: 40, phone: 40, message: 4000 };
 const ROOM_OPTIONS = ["", "Under 50", "50 to 100", "100 to 200", "200+"];
@@ -58,19 +59,45 @@ async function handleContact(request, env) {
     `Sent ${new Date().toUTCString()}`,
   ].join("\n");
 
+  // 1. Save the request first, so it's never lost even if email has a problem.
+  let leadId = null;
+  try {
+    const row = await env.DB.prepare(
+      "INSERT INTO leads (name, email, hotel, rooms, phone, message) VALUES (?, ?, ?, ?, ?, ?) RETURNING id"
+    ).bind(data.name, data.email, data.hotel, data.rooms, data.phone, data.message).first();
+    leadId = row && row.id;
+  } catch (err) {
+    console.error("Saving lead failed", err && err.message);
+  }
+
+  // 2. Email it.
+  let emailError = null;
   try {
     await env.EMAIL.send({
       from: { email: env.CONTACT_FROM, name: "Room Warden website" },
       to: env.CONTACT_TO,
-      replyTo: { email: data.email, name: data.name },
+      replyTo: data.email,
       subject: `Demo request: ${data.hotel}`,
       text,
     });
   } catch (err) {
-    console.error("Email send failed", err && err.code, err && err.message);
-    return json({ error: "That didn't go through on our end. Try again in a minute." }, 502);
+    emailError = `${(err && err.code) || "error"}: ${(err && err.message) || String(err)}`.slice(0, 500);
+    console.error("Email send failed", emailError);
   }
 
+  if (leadId) {
+    try {
+      await env.DB.prepare("UPDATE leads SET emailed = ?, email_error = ? WHERE id = ?")
+        .bind(emailError ? 0 : 1, emailError, leadId).run();
+    } catch (err) {
+      console.error("Updating lead failed", err && err.message);
+    }
+  }
+
+  // The visitor only sees an error if we couldn't keep their request at all.
+  if (!leadId && emailError) {
+    return json({ error: "That didn't go through on our end. Try again in a minute." }, 502);
+  }
   return json({ ok: true });
 }
 

@@ -19,6 +19,14 @@
       "destination_address": "ammar@roomwardenadmin.com"
     }
   ],
+  "d1_databases": [
+    {
+      // Every demo request is saved here before it's emailed, so none get lost.
+      "binding": "DB",
+      "database_name": "roomwarden-leads",
+      "database_id": "2056bc19-e4ec-4b06-a090-c491e0562a90"
+    }
+  ],
   "vars": {
     "CONTACT_TO": "ammar@roomwardenadmin.com",
     // Must be an address on a domain in your Cloudflare account with Email Routing turned on.
