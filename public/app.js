@@ -1,8 +1,7 @@
 // Room Warden site script. Small on purpose: nav toggle, the live board, the workflow tabs and the contact form.
 
-// Paste your form endpoint here (Formspree, Basin, a Vercel function, etc.) before going live.
-// While it's empty the form only shows the confirmation message and nothing is sent.
-const FORM_ENDPOINT = "";
+// The demo form posts to the Cloudflare Worker in /worker, which emails the request.
+const FORM_ENDPOINT = "/api/contact";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -133,11 +132,15 @@ if (form) {
     btn.disabled = true; btn.textContent = "Sending...";
     try {
       const res = await fetch(FORM_ENDPOINT, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) {
+        let msg = "";
+        try { msg = (await res.json()).error || ""; } catch (_) {}
+        throw new Error(msg || "That didn't go through. Try again in a minute.");
+      }
       done();
     } catch (err) {
       status.className = "form-status error";
-      status.textContent = "That didn't go through. Check your connection and try again, or email us directly.";
+      status.textContent = (err && err.message && err.message.length > 3) ? err.message : "That didn't go through. Check your connection and try again.";
       status.hidden = false;
     } finally {
       btn.disabled = false; btn.textContent = "Book a demo";

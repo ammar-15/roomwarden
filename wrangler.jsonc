@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "roomwarden",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-15",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // Only the form endpoint runs Worker code; every other request is served straight from /public.
+    "run_worker_first": ["/api/*"],
+    // /faq serves faq.html, /blog/post-name serves blog/post-name.html
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      // Demo requests can only ever be sent to this address.
+      "destination_address": "ammar@roomwardenadmin.com"
+    }
+  ],
+  "vars": {
+    "CONTACT_TO": "ammar@roomwardenadmin.com",
+    // Must be an address on a domain in your Cloudflare account with Email Routing turned on.
+    "CONTACT_FROM": "forms@roomwarden.com"
+  },
+  "observability": { "enabled": true }
+}

@@ -325,6 +325,7 @@ form.lead { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap
 .field textarea { min-height: 7rem; resize: vertical; }
 .field input::placeholder, .field textarea::placeholder { color: #8A908A; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--brass); outline-offset: 1px; border-color: transparent; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; }
 .form-foot small { color: var(--band-muted); font-size: .85rem; }
 .form-status { grid-column: 1 / -1; font-size: .95rem; padding: .85rem 1rem; border-radius: 8px; background: rgba(169, 192, 174, .14); color: var(--band-ink); }

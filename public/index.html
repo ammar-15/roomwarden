@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://roomwarden.com/#org", "name": "Room Warden", "url": "https://roomwarden.com/", "logo": "https://roomwarden.com/apple-touch-icon.png", "email": "hello@roomwarden.com", "sameAs": ["https://www.linkedin.com/company/roomwarden/"], "description": "Hotel operations software for housekeeping, live room status, airport shuttle pickups, maintenance tickets, guest requests, feedback and events."}, {"@type": "WebSite", "@id": "https://roomwarden.com/#site", "url": "https://roomwarden.com/", "name": "Room Warden", "publisher": {"@id": "https://roomwarden.com/#org"}, "inLanguage": "en-CA"}, {"@type": "SoftwareApplication", "name": "Room Warden", "applicationCategory": "BusinessApplication", "operatingSystem": "Web browser", "url": "https://roomwarden.com/", "publisher": {"@id": "https://roomwarden.com/#org"}, "description": "Hotel operations software for housekeeping, live room status, airport shuttle pickups with guest texts, maintenance tickets, room requests, guest feedback and events. Runs alongside any PMS with no integration needed.", "featureList": ["Digital housekeeping workflows", "Live room status updates", "Airport shuttle pickups with guest texts", "Maintenance tickets", "Guest room requests", "Guest feedback", "Events and groups", "Parking and park and fly tracking", "Lost and found", "Shift log and custom trackers", "Per-user logins and permissions"]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://roomwarden.com/#org", "name": "Room Warden", "url": "https://roomwarden.com/", "logo": "https://roomwarden.com/apple-touch-icon.png", "sameAs": ["https://www.linkedin.com/company/roomwarden/"], "description": "Hotel operations software for housekeeping, live room status, airport shuttle pickups, maintenance tickets, guest requests, feedback and events."}, {"@type": "WebSite", "@id": "https://roomwarden.com/#site", "url": "https://roomwarden.com/", "name": "Room Warden", "publisher": {"@id": "https://roomwarden.com/#org"}, "inLanguage": "en-CA"}, {"@type": "SoftwareApplication", "name": "Room Warden", "applicationCategory": "BusinessApplication", "operatingSystem": "Web browser", "url": "https://roomwarden.com/", "publisher": {"@id": "https://roomwarden.com/#org"}, "description": "Hotel operations software for housekeeping, live room status, airport shuttle pickups with guest texts, maintenance tickets, room requests, guest feedback and events. Runs alongside any PMS with no integration needed.", "featureList": ["Digital housekeeping workflows", "Live room status updates", "Airport shuttle pickups with guest texts", "Maintenance tickets", "Guest room requests", "Guest feedback", "Events and groups", "Parking and park and fly tracking", "Lost and found", "Shift log and custom trackers", "Per-user logins and permissions"]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -205,17 +205,16 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="9.5" height="14" rx="1.5"/><rect x="14.5" y="5" width="6.5" height="14" rx="1.5"/></svg>No PMS changes and no integration project</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>We handle setup and walk your team through it</li>
       </ul>
-      <p class="contact-email">Rather email? Reach us at <b>hello@roomwarden.com</b></p>
     </div>
     <form class="lead" novalidate>
       <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-hotel">Hotel name</label><input id="f-hotel" name="hotel" autocomplete="organization" required></div>
-      <div class="field"><label for="f-role">Your role</label><input id="f-role" name="role" placeholder="GM, front office manager..." autocomplete="organization-title"></div>
       <div class="field"><label for="f-rooms">Number of rooms</label>
         <select id="f-rooms" name="rooms"><option value="">Select</option><option>Under 50</option><option>50 to 100</option><option>100 to 200</option><option>200+</option></select></div>
-      <div class="field"><label for="f-phone">Phone <span>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field full"><label for="f-phone">Phone <span>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
       <div class="field full"><label for="f-msg">What do you want to fix first? <span>(optional)</span></label><textarea id="f-msg" name="message" placeholder="Shuttle calls, housekeeping updates, maintenance..."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
       <p class="form-status" role="status" hidden></p>
       <div class="form-foot"><small>We only use this to get back to you.</small><button class="btn btn-primary" type="submit">Book a demo</button></div>
     </form>
@@ -228,7 +227,6 @@
       <div class="footer-brand">
         <a class="brand" href="/" aria-label="Room Warden home"><svg viewBox="200 140 1532 1652" fill="currentColor" aria-hidden="true"><path d="M346 1645V350a63 63 0 0 1 63-63h1113a63 63 0 0 1 63 63v1295" fill="none" stroke="currentColor" stroke-width="254" stroke-linecap="round"/><path d="M639 558l611 300q37 20 37 60v758q0 26-27 21L639 1395Z"/></svg><span>Room Warden</span></a>
         <p>Hotel operations software for housekeeping, shuttles, maintenance and guest requests. It runs alongside your PMS, no integration needed.</p>
-        <p class="email">hello@roomwarden.com</p>
         <a class="social" href="https://www.linkedin.com/company/roomwarden/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14 14 10M8.5 12.5 6.8 14.2a3 3 0 0 0 4.3 4.3l1.7-1.7M15.5 11.5l1.7-1.7a3 3 0 0 0-4.3-4.3l-1.7 1.7"/></svg>Follow us on LinkedIn</a>
       </div>
       <div class="footer-col">
