@@ -1,0 +1,5 @@
+# Search engines and AI assistants are welcome to read this site.
+User-agent: *
+Allow: /
+
+Sitemap: https://roomwarden.com/sitemap.xml

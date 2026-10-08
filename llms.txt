@@ -1,0 +1,26 @@
+# Room Warden
+
+> Room Warden is hotel operations software. It puts housekeeping, live room status, shuttle requests by text, maintenance tickets, guest room requests, guest feedback and events in one web app. It runs alongside any property management system (PMS) and needs no PMS integration.
+
+Key facts:
+- Built for select-service and airport hotels, usable by any property.
+- Guests request shuttle rides by regular text message; no guest app.
+- Staff use it in a web browser on any phone, tablet or computer.
+- Every staff member gets their own admin-issued login with per-user permissions.
+- Hosted on dedicated servers with a failover server and regular backups.
+- Pricing is quoted per property; book a demo at https://roomwarden.com/#contact.
+
+## Pages
+
+- [Home](https://roomwarden.com/): What Room Warden does, its workflows and how to book a demo
+- [FAQ](https://roomwarden.com/faq): Answers on PMS compatibility, shuttle texts, housekeeping, permissions, setup, hosting and pricing
+
+## Blog
+
+- [Hotel housekeeping room status codes, explained](https://roomwarden.com/blog/housekeeping-room-status-codes): What VC, VD, OC, OOO, OOS and the other hotel room status codes mean, how they differ, and why live status updates matter for the front desk.
+- [How to run a hotel shuttle without the radio](https://roomwarden.com/blog/hotel-shuttle-text-requests): A simpler way to run an airport or local hotel shuttle: take ride requests by text, keep the driver and front desk on the same screen, and log every trip.
+- [What your PMS doesn't cover (and what hotels use instead)](https://roomwarden.com/blog/what-your-pms-doesnt-cover): A property management system handles reservations and billing, but daily hotel operations like shuttles, maintenance and guest requests often live on radios, whiteboards and group chats.
+
+## Contact
+
+- Email: hello@roomwarden.com
