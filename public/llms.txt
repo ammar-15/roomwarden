@@ -21,6 +21,11 @@ Key facts:
 - [Hotel housekeeping room status codes, explained](https://roomwarden.com/blog/housekeeping-room-status-codes): What VC, VD, OC, OOO, OOS and the other hotel room status codes mean, how they differ, and why live status updates matter for the front desk.
 - [How to run a hotel shuttle without the radio](https://roomwarden.com/blog/hotel-shuttle-text-requests): A simpler way to run an airport hotel shuttle: log pickups when guests call, keep the driver and front desk on one screen, and text guests the pickup spot and time.
 - [What your PMS doesn't cover (and what hotels use instead)](https://roomwarden.com/blog/what-your-pms-doesnt-cover): A property management system handles reservations and billing, but daily hotel operations like shuttles, maintenance and guest requests often live on radios, whiteboards and group chats.
+- [How to write a front desk shift log the next shift will actually read](https://roomwarden.com/blog/front-desk-shift-log): What to put in a hotel front desk shift log, what to leave out, and how to hand over between shifts so open issues don't get lost overnight.
+- [How to track park and fly cars at an airport hotel](https://roomwarden.com/blog/park-and-fly-tracking): What to record when a guest leaves their car for park and fly, how to keep the lot count right, and how to avoid the 'where's my car' call at 1am.
+- [How to track hotel maintenance requests so nothing gets lost](https://roomwarden.com/blog/hotel-maintenance-requests): A simple process for hotel maintenance requests: log every issue with a room and a description, assign it, and only close it when maintenance confirms the fix.
+- [How to handle guest room requests without losing any](https://roomwarden.com/blog/guest-room-requests): Extra towels, a crib, more pillows. How hotels can log guest requests, send them to the houseman or housekeeping, and confirm they were delivered.
+- [A simple lost and found process for hotels](https://roomwarden.com/blog/hotel-lost-and-found): How to log, store and return items guests leave behind: what to record, how to label items, and how to answer the 'did you find my charger' call quickly.
 
 ## Contact
 
