@@ -147,3 +147,24 @@ if (form) {
     }
   });
 }
+
+// Features tile: rooms move through the housekeeping cycle
+const tileRooms = document.querySelector("[data-tile-rooms]");
+if (tileRooms && !reduceMotion) {
+  const order = ["dirty", "cleaning", "clean", "ready"];
+  const label = { dirty: "Dirty", cleaning: "Cleaning", clean: "Clean", ready: "Ready" };
+  const said = { dirty: "checked out", cleaning: "housekeeping started", clean: "marked clean", ready: "inspected, ready to sell" };
+  const rooms = [...tileRooms.querySelectorAll("[data-cycle]")];
+  const note = tileRooms.parentElement.querySelector(".ticker");
+  let n = 0;
+  setInterval(() => {
+    if (document.hidden || !rooms.length) return;
+    const r = rooms[n++ % rooms.length];
+    const next = order[(order.indexOf(r.dataset.s) + 1) % order.length];
+    r.dataset.s = next;
+    r.querySelector("span").textContent = label[next];
+    r.classList.add("flash");
+    setTimeout(() => r.classList.remove("flash"), 900);
+    if (note) note.innerHTML = `<b>Room ${r.querySelector("b").textContent}</b> ${said[next]}`;
+  }, 2400);
+}

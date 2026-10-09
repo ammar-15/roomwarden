@@ -207,6 +207,59 @@ p { margin: 0; }
   .flow li > * { grid-column: 2; }
 }
 
+/* Features: four animated tiles */
+.bento { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; display: grid; gap: .85rem; align-content: start; min-width: 0; }
+.tile h3 { font-size: 1.15rem; }
+.tile > p { color: var(--muted); font-size: .98rem; }
+.viz { height: 190px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); position: relative; overflow: hidden; padding: 1rem; }
+.incl { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
+.incl li { font-size: .8rem; font-weight: 650; padding: .25rem .6rem; border-radius: 99px; background: var(--sage-tint); color: var(--sage-text); }
+.also { margin-top: 1.25rem; color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .bento { grid-template-columns: minmax(0, 1fr); } }
+
+.viz-rooms .rooms { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.viz-rooms .ticker { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
+.viz-rooms .ticker b { color: var(--ink); }
+
+.tile .road { position: absolute; left: 8%; right: 8%; top: 64px; height: 4px; border-radius: 2px; background: var(--line); }
+.stop2 { position: absolute; top: 58px; transform: translateX(-50%); display: grid; justify-items: center; gap: .45rem; }
+.stop2 i { width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 3px solid var(--muted); }
+.stop2 span { font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.stop2.t3 i { animation: pin 10s ease-in-out infinite; }
+@keyframes pin { 0%, 58% { border-color: var(--muted); background: var(--surface); } 64%, 96% { border-color: var(--cta); background: var(--cta); } 100% { border-color: var(--muted); background: var(--surface); } }
+.bus2 { position: absolute; top: 18px; left: 8%; transform: translateX(-50%); width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--cta); color: var(--on-cta); display: grid; place-items: center; animation: bus2 10s ease-in-out infinite; }
+.bus2 svg { width: 1.2rem; height: 1.2rem; }
+@keyframes bus2 { 0%, 10% { left: 8%; } 30%, 40% { left: 50%; } 60%, 90% { left: 92%; } 100% { left: 8%; } }
+.viz .pick { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; font-size: .84rem; line-height: 1.4; padding: .55rem .75rem; border-radius: 12px; background: var(--sage-tint); animation: pick 10s ease-in-out infinite; }
+.viz .pick small { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); }
+@keyframes pick { 0%, 55% { opacity: .35; transform: translateY(4px); } 62%, 94% { opacity: 1; transform: none; } 100% { opacity: .35; } }
+
+.kb-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.kb-cols span { font-size: .75rem; font-weight: 700; color: var(--muted); padding-bottom: .35rem; border-bottom: 2px solid var(--line); }
+.kb-lane { position: relative; height: 72px; margin-top: .6rem; }
+@media (max-width: 560px) { .kb-lane { height: 92px; } .kb-card { width: calc(33.3% - .15rem); font-size: .7rem; padding: .4rem .45rem; } }
+.kb-card { position: absolute; top: 0; left: 0; width: calc(33.3% - .35rem); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .5rem .6rem; font-size: .78rem; line-height: 1.35; box-shadow: var(--shadow); animation: kb 9s ease-in-out infinite; }
+.kb-card b { display: block; }
+.kb-card span { color: var(--muted); }
+.kb-card i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: .3rem; background: var(--brass); animation: kbdot 9s ease-in-out infinite; }
+@keyframes kb { 0%, 18% { left: 0; } 33%, 52% { left: 33.4%; } 67%, 92% { left: 66.8%; } 100% { left: 0; } }
+@keyframes kbdot { 0%, 60% { background: var(--brass); } 67%, 92% { background: var(--sage-text); } 100% { background: var(--brass); } }
+.viz-kb { height: auto; min-height: 190px; }
+.kb-foot { margin-top: .75rem; display: flex; gap: .5rem; flex-wrap: wrap; font-size: .76rem; }
+.kb-foot span { padding: .2rem .55rem; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-weight: 600; }
+
+.sheet { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.sheet > div { height: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 6px; }
+.sheet > div:nth-child(4n) { border-right: 0; }
+.sheet .h { background: var(--sage-tint); font-size: .66rem; font-weight: 700; color: var(--sage-text); padding: 4px 6px; height: 22px; }
+.sheet .c::before { content: ""; display: block; height: 8px; border-radius: 3px; background: var(--muted); opacity: .45; width: var(--w, 70%); }
+.sheet .c { animation: fill 8s ease-in-out infinite; animation-delay: calc(var(--r) * .45s); }
+@keyframes fill { 0% { opacity: .12; } 8%, 90% { opacity: 1; } 100% { opacity: .12; } }
+.export { position: absolute; right: 1rem; bottom: .9rem; display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 700; padding: .3rem .65rem; border-radius: 99px; background: var(--cta); color: var(--on-cta); animation: exp 8s ease-in-out infinite; }
+.export svg { width: 14px; height: 14px; }
+@keyframes exp { 0%, 40% { opacity: .3; } 48%, 90% { opacity: 1; } 100% { opacity: .3; } }
+
 /* Workflow visuals, synced with the steps */
 .wf-visual { border: 1px solid var(--line); border-radius: 12px; background: var(--bg); padding: clamp(1rem, 3vw, 1.5rem); margin-bottom: 2.25rem; display: grid; gap: 1.1rem; }
 .wf-say { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .75rem; font-size: .95rem; }
