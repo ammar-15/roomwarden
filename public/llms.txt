@@ -5,7 +5,7 @@
 Key facts:
 - Built for select-service and airport hotels, usable by any property.
 - Also tracks parking and park and fly, lost and found, shift notes and other front desk lists.
-- Builds daily, weekly and monthly reports automatically, keeps a time-stamped audit trail, and exports summaries for accounting.
+- Automates daily, weekly and monthly reports, including reports for audits, from what staff log. Every entry is time-stamped, and summaries export for accounting.
 - Guests call the hotel for a shuttle pickup and get a text with the pickup spot and time, plus a heads-up when the driver is close; no guest app.
 - Staff use it in a web browser on any phone, tablet or computer.
 - Every staff member gets their own admin-issued login with per-user permissions.
