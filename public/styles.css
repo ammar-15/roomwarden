@@ -390,7 +390,7 @@ form.lead { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding-block: clamp(3rem, 6vw, 4.5rem) 0; font-size: .95rem; overflow: hidden; }
-.footer-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
 .footer-brand { display: grid; gap: 1rem; align-content: start; max-width: 22rem; }
 .footer-brand p { color: var(--muted); }
 .footer-brand .email { color: var(--ink); font-weight: 600; user-select: all; }
